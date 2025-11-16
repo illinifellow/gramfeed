@@ -33,3 +33,7 @@ class FetchedPost:
 
 @dataclass
 class FetchedProfile:
+    username: str
+    full_name: str | None
+    biography: str | None
+    avatar_url: str
