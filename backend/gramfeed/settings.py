@@ -13,3 +13,5 @@ class Settings(BaseSettings):
     # media is re-hosted: Instagram CDN links expire within hours, feed readers fetch days later
     s3_bucket: str = "gramfeed-media"
     s3_endpoint: str | None = None
+    s3_public_url: str | None = None
+    # one logged-in session lowers the rate limit pressure; anonymous works for most accounts
