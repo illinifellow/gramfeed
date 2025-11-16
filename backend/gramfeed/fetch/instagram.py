@@ -24,3 +24,4 @@ class FetchedMedia:
 @dataclass
 class FetchedPost:
     shortcode: str
+    taken_at: datetime
