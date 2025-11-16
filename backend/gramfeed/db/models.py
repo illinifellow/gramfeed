@@ -10,3 +10,11 @@ class Base(DeclarativeBase):
 
 class Account(Base):
     """A public Instagram account someone subscribed to."""
+
+    __tablename__ = "accounts"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    username: Mapped[str] = mapped_column(String(30), unique=True, index=True)
+    full_name: Mapped[str | None] = mapped_column(String(150))
+    biography: Mapped[str | None] = mapped_column(Text)
+    avatar_key: Mapped[str | None] = mapped_column(String(200))
