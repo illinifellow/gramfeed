@@ -19,3 +19,7 @@ class FetchedMedia:
     url: str
     width: int | None
     height: int | None
+
+
+@dataclass
+class FetchedPost:
