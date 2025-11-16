@@ -5,3 +5,7 @@ endpoints — it tracks their changing query hashes, handles sessions and backs 
 nothing comparable in the TypeScript ecosystem, and re-implementing it would mean chasing
 Instagram's changes alone.
 """
+
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from itertools import islice
