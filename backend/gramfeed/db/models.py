@@ -21,3 +21,4 @@ class Account(Base):
     last_fetched_at: Mapped[datetime | None]
     last_error: Mapped[str | None] = mapped_column(Text)
     # a private or deleted account stops being polled until someone retries it
+    paused: Mapped[bool] = mapped_column(default=False)
