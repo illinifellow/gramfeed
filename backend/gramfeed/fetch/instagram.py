@@ -42,3 +42,4 @@ class FetchedProfile:
 
 
 class AccountUnavailable(Exception):
+    """Private, renamed or deleted: polling stops until someone retries."""
