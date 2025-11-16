@@ -18,3 +18,4 @@ class Account(Base):
     full_name: Mapped[str | None] = mapped_column(String(150))
     biography: Mapped[str | None] = mapped_column(Text)
     avatar_key: Mapped[str | None] = mapped_column(String(200))
+    last_fetched_at: Mapped[datetime | None]
