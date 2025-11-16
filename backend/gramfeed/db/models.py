@@ -31,3 +31,6 @@ class Post(Base):
     __table_args__ = (UniqueConstraint("account_id", "shortcode"),)
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    account_id: Mapped[int] = mapped_column(ForeignKey("accounts.id", ondelete="CASCADE"), index=True)
+    shortcode: Mapped[str] = mapped_column(String(20))
+    taken_at: Mapped[datetime] = mapped_column(index=True)
