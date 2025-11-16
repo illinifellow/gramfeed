@@ -32,3 +32,4 @@ class FetchedPost:
 
 
 @dataclass
+class FetchedProfile:
