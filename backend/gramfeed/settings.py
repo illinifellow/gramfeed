@@ -9,3 +9,4 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+asyncpg://gramfeed:gramfeed@localhost/gramfeed"
     redis_url: str = "redis://localhost:6379/0"
     public_url: str = "http://localhost:8000"
+    admin_token: str = "change-me"
