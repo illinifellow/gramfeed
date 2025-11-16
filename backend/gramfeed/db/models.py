@@ -25,3 +25,7 @@ class Account(Base):
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
     posts: Mapped[list["Post"]] = relationship(back_populates="account", order_by="Post.taken_at.desc()")
 
+
+class Post(Base):
+    __tablename__ = "posts"
+    __table_args__ = (UniqueConstraint("account_id", "shortcode"),)
