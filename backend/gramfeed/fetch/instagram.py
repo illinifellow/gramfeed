@@ -37,3 +37,5 @@ class FetchedProfile:
     full_name: str | None
     biography: str | None
     avatar_url: str
+    private: bool
+    posts: list[FetchedPost]
