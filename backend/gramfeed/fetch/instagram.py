@@ -9,3 +9,8 @@ Instagram's changes alone.
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from itertools import islice
+
+import instaloader
+
+
+@dataclass
