@@ -19,3 +19,5 @@ class Account(Base):
     biography: Mapped[str | None] = mapped_column(Text)
     avatar_key: Mapped[str | None] = mapped_column(String(200))
     last_fetched_at: Mapped[datetime | None]
+    last_error: Mapped[str | None] = mapped_column(Text)
+    # a private or deleted account stops being polled until someone retries it
