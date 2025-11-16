@@ -44,3 +44,6 @@ class FetchedProfile:
 class AccountUnavailable(Exception):
     """Private, renamed or deleted: polling stops until someone retries."""
 
+
+def loader(session_user: str | None) -> instaloader.Instaloader:
+    L = instaloader.Instaloader(
