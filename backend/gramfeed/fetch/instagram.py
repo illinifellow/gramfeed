@@ -15,3 +15,4 @@ import instaloader
 
 @dataclass
 class FetchedMedia:
+    kind: str
