@@ -11,3 +11,5 @@ class Settings(BaseSettings):
     public_url: str = "http://localhost:8000"
     admin_token: str = "change-me"
     # media is re-hosted: Instagram CDN links expire within hours, feed readers fetch days later
+    s3_bucket: str = "gramfeed-media"
+    s3_endpoint: str | None = None
