@@ -23,3 +23,4 @@ class FetchedMedia:
 
 @dataclass
 class FetchedPost:
+    shortcode: str
