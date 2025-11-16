@@ -29,3 +29,6 @@ class FetchedPost:
     kind: str
     location: str | None
     media: list[FetchedMedia]
+
+
+@dataclass
