@@ -27,3 +27,5 @@ class FetchedPost:
     taken_at: datetime
     caption: str | None
     kind: str
+    location: str | None
+    media: list[FetchedMedia]
