@@ -23,3 +23,5 @@ class Account(Base):
     # a private or deleted account stops being polled until someone retries it
     paused: Mapped[bool] = mapped_column(default=False)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    posts: Mapped[list["Post"]] = relationship(back_populates="account", order_by="Post.taken_at.desc()")
+
