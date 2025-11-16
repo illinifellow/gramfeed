@@ -29,3 +29,5 @@ class Account(Base):
 class Post(Base):
     __tablename__ = "posts"
     __table_args__ = (UniqueConstraint("account_id", "shortcode"),)
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
