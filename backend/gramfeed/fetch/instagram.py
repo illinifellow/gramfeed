@@ -39,3 +39,6 @@ class FetchedProfile:
     avatar_url: str
     private: bool
     posts: list[FetchedPost]
+
+
+class AccountUnavailable(Exception):
