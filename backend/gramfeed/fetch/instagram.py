@@ -17,3 +17,5 @@ import instaloader
 class FetchedMedia:
     kind: str
     url: str
+    width: int | None
+    height: int | None
