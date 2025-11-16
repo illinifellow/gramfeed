@@ -25,3 +25,5 @@ class FetchedMedia:
 class FetchedPost:
     shortcode: str
     taken_at: datetime
+    caption: str | None
+    kind: str
