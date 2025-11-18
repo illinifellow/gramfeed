@@ -35,3 +35,7 @@ class Post(Base):
     shortcode: Mapped[str] = mapped_column(String(20))
     taken_at: Mapped[datetime] = mapped_column(index=True)
     caption: Mapped[str | None] = mapped_column(Text)
+    kind: Mapped[str] = mapped_column(String(10))  # image | video | carousel
+    location: Mapped[str | None] = mapped_column(String(200))
+    account: Mapped[Account] = relationship(back_populates="posts")
+    media: Mapped[list["Media"]] = relationship(order_by="Media.position", cascade="all, delete-orphan")
