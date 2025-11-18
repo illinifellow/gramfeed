@@ -18,3 +18,4 @@ class Settings(BaseSettings):
     instagram_session_user: str | None = None
     refresh_minutes: int = 60
     max_posts_per_feed: int = 30
+
