@@ -18,3 +18,6 @@ async def main():
     async with engine.connect() as conn:
         await conn.run_sync(run)
     await engine.dispose()
+
+
+asyncio.run(main())
