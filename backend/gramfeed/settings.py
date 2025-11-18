@@ -19,3 +19,7 @@ class Settings(BaseSettings):
     refresh_minutes: int = 60
     max_posts_per_feed: int = 30
 
+
+@lru_cache
+def settings() -> Settings:
+    return Settings()
