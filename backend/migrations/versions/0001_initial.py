@@ -14,3 +14,4 @@ def upgrade() -> None:
     op.create_table(
         "accounts",
         sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("username", sa.String(30), nullable=False, unique=True, index=True),
