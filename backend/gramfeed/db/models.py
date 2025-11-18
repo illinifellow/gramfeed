@@ -34,3 +34,4 @@ class Post(Base):
     account_id: Mapped[int] = mapped_column(ForeignKey("accounts.id", ondelete="CASCADE"), index=True)
     shortcode: Mapped[str] = mapped_column(String(20))
     taken_at: Mapped[datetime] = mapped_column(index=True)
+    caption: Mapped[str | None] = mapped_column(Text)
