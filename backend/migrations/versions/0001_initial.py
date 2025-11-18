@@ -21,3 +21,5 @@ def upgrade() -> None:
         sa.Column("last_fetched_at", sa.DateTime),
         sa.Column("last_error", sa.Text),
         sa.Column("paused", sa.Boolean, nullable=False, server_default=sa.false()),
+        sa.Column("created_at", sa.DateTime, nullable=False, server_default=sa.func.now()),
+    )
