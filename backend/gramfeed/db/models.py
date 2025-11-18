@@ -40,3 +40,6 @@ class Post(Base):
     account: Mapped[Account] = relationship(back_populates="posts")
     media: Mapped[list["Media"]] = relationship(order_by="Media.position", cascade="all, delete-orphan")
 
+
+class Media(Base):
+    __tablename__ = "media"
