@@ -15,3 +15,5 @@ class Settings(BaseSettings):
     s3_endpoint: str | None = None
     s3_public_url: str | None = None
     # one logged-in session lowers the rate limit pressure; anonymous works for most accounts
+    instagram_session_user: str | None = None
+    refresh_minutes: int = 60
