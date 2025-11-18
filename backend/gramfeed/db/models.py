@@ -48,3 +48,5 @@ class Media(Base):
     post_id: Mapped[int] = mapped_column(ForeignKey("posts.id", ondelete="CASCADE"), index=True)
     position: Mapped[int]
     kind: Mapped[str] = mapped_column(String(10))
+    key: Mapped[str] = mapped_column(String(200))
+    width: Mapped[int | None]
