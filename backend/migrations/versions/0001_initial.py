@@ -27,3 +27,4 @@ def upgrade() -> None:
         "posts",
         sa.Column("id", sa.BigInteger, primary_key=True),
         sa.Column("account_id", sa.Integer, sa.ForeignKey("accounts.id", ondelete="CASCADE"), nullable=False, index=True),
+        sa.Column("shortcode", sa.String(20), nullable=False),
