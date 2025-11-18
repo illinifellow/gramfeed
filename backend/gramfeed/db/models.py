@@ -39,3 +39,4 @@ class Post(Base):
     location: Mapped[str | None] = mapped_column(String(200))
     account: Mapped[Account] = relationship(back_populates="posts")
     media: Mapped[list["Media"]] = relationship(order_by="Media.position", cascade="all, delete-orphan")
+
