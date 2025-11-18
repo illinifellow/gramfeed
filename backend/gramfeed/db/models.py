@@ -50,3 +50,4 @@ class Media(Base):
     kind: Mapped[str] = mapped_column(String(10))
     key: Mapped[str] = mapped_column(String(200))
     width: Mapped[int | None]
+    height: Mapped[int | None]
