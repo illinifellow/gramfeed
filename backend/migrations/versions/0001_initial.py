@@ -11,3 +11,5 @@ down_revision = None
 
 
 def upgrade() -> None:
+    op.create_table(
+        "accounts",
