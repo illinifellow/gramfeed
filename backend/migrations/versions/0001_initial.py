@@ -24,3 +24,6 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime, nullable=False, server_default=sa.func.now()),
     )
     op.create_table(
+        "posts",
+        sa.Column("id", sa.BigInteger, primary_key=True),
+        sa.Column("account_id", sa.Integer, sa.ForeignKey("accounts.id", ondelete="CASCADE"), nullable=False, index=True),
