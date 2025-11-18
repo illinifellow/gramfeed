@@ -17,3 +17,4 @@ class Settings(BaseSettings):
     # one logged-in session lowers the rate limit pressure; anonymous works for most accounts
     instagram_session_user: str | None = None
     refresh_minutes: int = 60
+    max_posts_per_feed: int = 30
