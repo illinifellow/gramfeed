@@ -43,3 +43,8 @@ class Post(Base):
 
 class Media(Base):
     __tablename__ = "media"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    post_id: Mapped[int] = mapped_column(ForeignKey("posts.id", ondelete="CASCADE"), index=True)
+    position: Mapped[int]
+    kind: Mapped[str] = mapped_column(String(10))
