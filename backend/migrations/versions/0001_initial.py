@@ -31,3 +31,4 @@ def upgrade() -> None:
         sa.Column("taken_at", sa.DateTime, nullable=False, index=True),
         sa.Column("caption", sa.Text),
         sa.Column("kind", sa.String(10), nullable=False),
+        sa.Column("location", sa.String(200)),
