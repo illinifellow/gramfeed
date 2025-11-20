@@ -42,3 +42,4 @@ def upgrade() -> None:
         sa.Column("kind", sa.String(10), nullable=False),
         sa.Column("key", sa.String(200), nullable=False),
         sa.Column("width", sa.Integer),
+        sa.Column("height", sa.Integer),
