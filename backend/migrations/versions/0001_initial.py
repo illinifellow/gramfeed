@@ -48,3 +48,5 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     op.drop_table("media")
+    op.drop_table("posts")
+    op.drop_table("accounts")
