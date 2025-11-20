@@ -40,3 +40,5 @@ def upgrade() -> None:
         sa.Column("post_id", sa.BigInteger, sa.ForeignKey("posts.id", ondelete="CASCADE"), nullable=False, index=True),
         sa.Column("position", sa.Integer, nullable=False),
         sa.Column("kind", sa.String(10), nullable=False),
+        sa.Column("key", sa.String(200), nullable=False),
+        sa.Column("width", sa.Integer),
