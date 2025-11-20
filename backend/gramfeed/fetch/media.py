@@ -17,3 +17,4 @@ def rehost(url: str, prefix: str) -> str:
     try:
         _s3.head_object(Bucket=settings().s3_bucket, Key=key)
         return key
+    except _s3.exceptions.ClientError:
