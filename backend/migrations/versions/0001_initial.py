@@ -33,3 +33,6 @@ def upgrade() -> None:
         sa.Column("kind", sa.String(10), nullable=False),
         sa.Column("location", sa.String(200)),
         sa.UniqueConstraint("account_id", "shortcode"),
+    )
+    op.create_table(
+        "media",
