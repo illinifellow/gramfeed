@@ -12,3 +12,4 @@ def post(caption=None, kind="image", media=(), location=None):
 def test_title_is_first_caption_line_cut_at_a_word():
     long = "Morning light over the harbour, with the fishing boats coming back after a long night at sea"
     assert title_of(post(long + "\nsecond line")).endswith("…")
+    assert len(title_of(post(long))) <= 81
