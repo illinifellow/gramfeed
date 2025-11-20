@@ -36,3 +36,5 @@ def upgrade() -> None:
     )
     op.create_table(
         "media",
+        sa.Column("id", sa.BigInteger, primary_key=True),
+        sa.Column("post_id", sa.BigInteger, sa.ForeignKey("posts.id", ondelete="CASCADE"), nullable=False, index=True),
