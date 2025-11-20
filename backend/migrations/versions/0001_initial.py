@@ -38,3 +38,4 @@ def upgrade() -> None:
         "media",
         sa.Column("id", sa.BigInteger, primary_key=True),
         sa.Column("post_id", sa.BigInteger, sa.ForeignKey("posts.id", ondelete="CASCADE"), nullable=False, index=True),
+        sa.Column("position", sa.Integer, nullable=False),
