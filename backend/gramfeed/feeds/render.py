@@ -1,0 +1,1 @@
+"""RSS 2.0 and Atom from stored posts. Each item carries its images inline, so a reader shows the
