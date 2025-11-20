@@ -28,3 +28,6 @@ def upgrade() -> None:
         sa.Column("id", sa.BigInteger, primary_key=True),
         sa.Column("account_id", sa.Integer, sa.ForeignKey("accounts.id", ondelete="CASCADE"), nullable=False, index=True),
         sa.Column("shortcode", sa.String(20), nullable=False),
+        sa.Column("taken_at", sa.DateTime, nullable=False, index=True),
+        sa.Column("caption", sa.Text),
+        sa.Column("kind", sa.String(10), nullable=False),
