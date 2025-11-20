@@ -32,3 +32,4 @@ def upgrade() -> None:
         sa.Column("caption", sa.Text),
         sa.Column("kind", sa.String(10), nullable=False),
         sa.Column("location", sa.String(200)),
+        sa.UniqueConstraint("account_id", "shortcode"),
