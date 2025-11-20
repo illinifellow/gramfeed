@@ -44,3 +44,7 @@ def upgrade() -> None:
         sa.Column("width", sa.Integer),
         sa.Column("height", sa.Integer),
     )
+
+
+def downgrade() -> None:
+    op.drop_table("media")
