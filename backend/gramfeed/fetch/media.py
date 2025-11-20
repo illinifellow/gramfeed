@@ -15,3 +15,5 @@ def rehost(url: str, prefix: str) -> str:
     ext = mimetypes.guess_extension(mimetypes.guess_type(path)[0] or "image/jpeg") or ".jpg"
     key = f"{prefix}/{hashlib.sha1(path.encode()).hexdigest()[:16]}{ext}"
     try:
+        _s3.head_object(Bucket=settings().s3_bucket, Key=key)
+        return key
