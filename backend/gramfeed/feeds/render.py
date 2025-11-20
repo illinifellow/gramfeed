@@ -4,3 +4,6 @@ post as Instagram would, and the first image as an enclosure for readers that on
 from html import escape
 
 from feedgen.feed import FeedGenerator
+
+from gramfeed.db.models import Account
+from gramfeed.fetch.media import public_url
