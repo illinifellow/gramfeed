@@ -14,3 +14,6 @@ def test_title_is_first_caption_line_cut_at_a_word():
     assert title_of(post(long + "\nsecond line")).endswith("…")
     assert len(title_of(post(long))) <= 81
     assert title_of(post("Short one\nmore")) == "Short one"
+
+
+def test_title_falls_back_to_the_kind_of_post():
