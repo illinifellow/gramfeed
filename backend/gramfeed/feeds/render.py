@@ -11,3 +11,5 @@ from gramfeed.settings import settings
 
 
 def item_html(account: Account, post) -> str:
+    parts = []
+    for m in post.media:
