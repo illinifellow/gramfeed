@@ -21,3 +21,4 @@ def item_html(account: Account, post) -> str:
     if post.caption:
         parts.append("<p>" + escape(post.caption).replace("\n", "<br>") + "</p>")
     if post.location:
+        parts.append(f"<p><small>📍 {escape(post.location)}</small></p>")
