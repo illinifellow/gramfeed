@@ -31,3 +31,8 @@ def title_of(post) -> str:
     if not first:
         return {"video": "Video", "carousel": "Photos"}.get(post.kind, "Photo")
     return first if len(first) <= 80 else first[:80].rsplit(" ", 1)[0] + "…"
+
+
+def build(account: Account, fmt: str) -> bytes:
+    fg = FeedGenerator()
+    fg.id(f"{settings().public_url}/{account.username}")
