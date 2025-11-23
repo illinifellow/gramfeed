@@ -46,3 +46,5 @@ def build(account: Account, fmt: str) -> bytes:
         e = fg.add_entry()
         e.id(f"https://www.instagram.com/p/{post.shortcode}/")
         e.link(href=f"https://www.instagram.com/p/{post.shortcode}/")
+        e.title(title_of(post))
+        e.published(post.taken_at)
