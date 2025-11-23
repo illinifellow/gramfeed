@@ -49,3 +49,6 @@ def build(account: Account, fmt: str) -> bytes:
         e.title(title_of(post))
         e.published(post.taken_at)
         e.content(item_html(account, post), type="CDATA")
+        if post.media:
+            first = post.media[0]
+            e.enclosure(public_url(first.key), 0, "video/mp4" if first.kind == "video" else "image/jpeg")
