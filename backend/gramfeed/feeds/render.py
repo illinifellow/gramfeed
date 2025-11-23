@@ -39,3 +39,5 @@ def build(account: Account, fmt: str) -> bytes:
     fg.title(f"{account.full_name or account.username} (@{account.username})")
     fg.link(href=f"https://www.instagram.com/{account.username}/", rel="alternate")
     fg.link(href=f"{settings().public_url}/{account.username}.{fmt}", rel="self")
+    fg.description(account.biography or f"Posts from @{account.username}")
+    if account.avatar_key:
