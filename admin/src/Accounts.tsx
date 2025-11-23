@@ -3,3 +3,4 @@ import { App as AntApp, Badge, Button, Input, Popconfirm, Space, Table, Tag, Too
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useState } from "react";
+import { type Account, api } from "./api/client";
