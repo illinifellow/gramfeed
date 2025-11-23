@@ -52,3 +52,4 @@ def build(account: Account, fmt: str) -> bytes:
         if post.media:
             first = post.media[0]
             e.enclosure(public_url(first.key), 0, "video/mp4" if first.kind == "video" else "image/jpeg")
+    return fg.atom_str(pretty=True) if fmt == "atom" else fg.rss_str(pretty=True)
