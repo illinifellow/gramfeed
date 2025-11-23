@@ -22,3 +22,7 @@ def item_html(account: Account, post) -> str:
         parts.append("<p>" + escape(post.caption).replace("\n", "<br>") + "</p>")
     if post.location:
         parts.append(f"<p><small>📍 {escape(post.location)}</small></p>")
+    return "\n".join(parts)
+
+
+def title_of(post) -> str:
