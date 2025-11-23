@@ -30,3 +30,4 @@ def title_of(post) -> str:
     first = (post.caption or "").strip().split("\n", 1)[0]
     if not first:
         return {"video": "Video", "carousel": "Photos"}.get(post.kind, "Photo")
+    return first if len(first) <= 80 else first[:80].rsplit(" ", 1)[0] + "…"
