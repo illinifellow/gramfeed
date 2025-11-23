@@ -43,3 +43,5 @@ def build(account: Account, fmt: str) -> bytes:
     if account.avatar_key:
         fg.logo(public_url(account.avatar_key))
     for post in reversed(account.posts[: settings().max_posts_per_feed]):
+        e = fg.add_entry()
+        e.id(f"https://www.instagram.com/p/{post.shortcode}/")
