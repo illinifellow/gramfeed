@@ -20,3 +20,4 @@ def item_html(account: Account, post) -> str:
             parts.append(f'<img src="{url}" alt="" loading="lazy">')
     if post.caption:
         parts.append("<p>" + escape(post.caption).replace("\n", "<br>") + "</p>")
+    if post.location:
