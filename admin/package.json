@@ -1,3 +1,5 @@
 {
   "name": "gramfeed-admin",
   "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "tsc -b && vite build" },
