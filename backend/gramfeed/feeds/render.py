@@ -8,3 +8,6 @@ from feedgen.feed import FeedGenerator
 from gramfeed.db.models import Account
 from gramfeed.fetch.media import public_url
 from gramfeed.settings import settings
+
+
+def item_html(account: Account, post) -> str:
