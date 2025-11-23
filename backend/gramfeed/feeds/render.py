@@ -15,3 +15,8 @@ def item_html(account: Account, post) -> str:
     for m in post.media:
         url = public_url(m.key)
         if m.kind == "video":
+            parts.append(f'<video src="{url}" controls playsinline></video>')
+        else:
+            parts.append(f'<img src="{url}" alt="" loading="lazy">')
+    if post.caption:
+        parts.append("<p>" + escape(post.caption).replace("\n", "<br>") + "</p>")
