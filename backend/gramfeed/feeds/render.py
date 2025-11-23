@@ -36,3 +36,4 @@ def title_of(post) -> str:
 def build(account: Account, fmt: str) -> bytes:
     fg = FeedGenerator()
     fg.id(f"{settings().public_url}/{account.username}")
+    fg.title(f"{account.full_name or account.username} (@{account.username})")
