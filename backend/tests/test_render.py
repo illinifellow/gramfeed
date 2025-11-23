@@ -18,3 +18,4 @@ def test_title_is_first_caption_line_cut_at_a_word():
 
 def test_title_falls_back_to_the_kind_of_post():
     assert title_of(post(None, "carousel")) == "Photos"
+
