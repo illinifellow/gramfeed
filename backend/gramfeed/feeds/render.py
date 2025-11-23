@@ -41,3 +41,5 @@ def build(account: Account, fmt: str) -> bytes:
     fg.link(href=f"{settings().public_url}/{account.username}.{fmt}", rel="self")
     fg.description(account.biography or f"Posts from @{account.username}")
     if account.avatar_key:
+        fg.logo(public_url(account.avatar_key))
+    for post in reversed(account.posts[: settings().max_posts_per_feed]):
