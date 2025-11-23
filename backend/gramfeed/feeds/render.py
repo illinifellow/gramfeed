@@ -26,3 +26,7 @@ def item_html(account: Account, post) -> str:
 
 
 def title_of(post) -> str:
+    """The first line of the caption, cut at a word, or the kind of post."""
+    first = (post.caption or "").strip().split("\n", 1)[0]
+    if not first:
+        return {"video": "Video", "carousel": "Photos"}.get(post.kind, "Photo")
