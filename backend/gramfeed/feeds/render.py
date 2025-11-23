@@ -14,3 +14,4 @@ def item_html(account: Account, post) -> str:
     parts = []
     for m in post.media:
         url = public_url(m.key)
+        if m.kind == "video":
