@@ -4,3 +4,9 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useState } from "react";
 import { type Account, api } from "./api/client";
+
+dayjs.extend(relativeTime);
+
+export function Accounts() {
+  const qc = useQueryClient();
+  const { message } = AntApp.useApp();
