@@ -50,3 +50,4 @@ export function Accounts() {
         dataSource={accounts.data}
         pagination={{ pageSize: 25, hideOnSinglePage: true }}
         columns={[
+          {
