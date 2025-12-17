@@ -60,3 +60,6 @@ export function Accounts() {
             ),
           },
           { title: "Posts", dataIndex: "posts", width: 90, align: "right" },
+          {
+            title: "Status",
+            render: (_, a) =>
