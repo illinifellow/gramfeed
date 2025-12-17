@@ -48,3 +48,4 @@ function Shell() {
           </Layout.Content>
         </Layout>
       </AntApp>
+    </ConfigProvider>
