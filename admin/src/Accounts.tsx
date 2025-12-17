@@ -80,3 +80,4 @@ export function Accounts() {
             render: (_, a) => (
               <Space>
                 <Button size="small" onClick={() => refresh.mutate(a.username)}>{a.paused ? "Retry" : "Refresh"}</Button>
+                <Popconfirm title={`Stop following @${a.username}?`} onConfirm={() => remove.mutate(a.username)}>
