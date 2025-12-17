@@ -34,3 +34,4 @@ export function Accounts() {
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
       <Space.Compact style={{ maxWidth: 480 }}>
         <Input
+          addonBefore="@"
