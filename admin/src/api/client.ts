@@ -22,3 +22,4 @@ export const api = {
   add: (username: string) => call<{ feed_url: string }>("/api/accounts", { method: "POST", body: JSON.stringify({ username }) }),
   refresh: (username: string) => call<void>(`/api/accounts/${username}/refresh`, { method: "POST" }),
   remove: (username: string) => call<void>(`/api/accounts/${username}`, { method: "DELETE" }),
+};
