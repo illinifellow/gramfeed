@@ -78,3 +78,5 @@ export function Accounts() {
           {
             width: 180,
             render: (_, a) => (
+              <Space>
+                <Button size="small" onClick={() => refresh.mutate(a.username)}>{a.paused ? "Retry" : "Refresh"}</Button>
