@@ -16,3 +16,7 @@ async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
   if (!res.ok) throw new Error((await res.json().catch(() => null))?.detail ?? res.statusText);
   return (res.status === 204 || res.status === 202 ? undefined : res.json()) as T;
 }
+
+export const api = {
+  accounts: () => call<Account[]>("/api/accounts"),
+  add: (username: string) => call<{ feed_url: string }>("/api/accounts", { method: "POST", body: JSON.stringify({ username }) }),
