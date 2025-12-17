@@ -47,3 +47,4 @@ function Shell() {
             <Accounts />
           </Layout.Content>
         </Layout>
+      </AntApp>
