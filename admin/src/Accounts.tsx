@@ -68,3 +68,5 @@ export function Accounts() {
               ) : a.last_fetched_at ? (
                 <Badge status="success" text={`updated ${dayjs(a.last_fetched_at).fromNow()}`} />
               ) : (
+                <Badge status="processing" text="first fetch queued" />
+              ),
