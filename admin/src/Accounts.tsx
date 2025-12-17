@@ -74,3 +74,4 @@ export function Accounts() {
           {
             title: "Feed",
             render: (_, a) => <Typography.Text copyable={{ text: a.feed_url }} code>{a.feed_url.replace(/^https?:\/\//, "")}</Typography.Text>,
+          },
