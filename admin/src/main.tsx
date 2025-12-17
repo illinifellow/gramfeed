@@ -46,3 +46,4 @@ function Shell() {
           <Layout.Content style={{ padding: 24 }}>
             <Accounts />
           </Layout.Content>
+        </Layout>
