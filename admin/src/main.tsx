@@ -36,3 +36,4 @@ function Shell() {
               style={{ marginLeft: "auto", maxWidth: 260 }}
               placeholder="Admin token"
               value={token}
+              onChange={(e) => {
