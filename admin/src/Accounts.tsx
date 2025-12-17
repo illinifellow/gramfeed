@@ -45,3 +45,5 @@ export function Accounts() {
         </Button>
       </Space.Compact>
       <Table<Account>
+        rowKey="username"
+        loading={accounts.isLoading}
