@@ -35,3 +35,11 @@ export function Accounts() {
       <Space.Compact style={{ maxWidth: 480 }}>
         <Input
           addonBefore="@"
+          placeholder="natgeo"
+          value={username}
+          onChange={(e) => setUsername(e.target.value.trim())}
+          onPressEnter={() => username && add.mutate(username)}
+        />
+        <Button type="primary" loading={add.isPending} disabled={!username} onClick={() => add.mutate(username)}>
+          Follow
+        </Button>
