@@ -52,3 +52,4 @@ export function Accounts() {
         columns={[
           {
             title: "Account",
+            render: (_, a) => (
