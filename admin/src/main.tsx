@@ -44,3 +44,5 @@ function Shell() {
             />
           </Layout.Header>
           <Layout.Content style={{ padding: 24 }}>
+            <Accounts />
+          </Layout.Content>
