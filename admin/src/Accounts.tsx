@@ -70,3 +70,4 @@ export function Accounts() {
               ) : (
                 <Badge status="processing" text="first fetch queued" />
               ),
+          },
