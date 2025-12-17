@@ -43,3 +43,5 @@ export function Accounts() {
         <Button type="primary" loading={add.isPending} disabled={!username} onClick={() => add.mutate(username)}>
           Follow
         </Button>
+      </Space.Compact>
+      <Table<Account>
