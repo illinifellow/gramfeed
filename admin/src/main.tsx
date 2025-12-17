@@ -42,3 +42,4 @@ function Shell() {
                 void queryClient.invalidateQueries();
               }}
             />
+          </Layout.Header>
