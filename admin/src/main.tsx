@@ -39,3 +39,5 @@ function Shell() {
               onChange={(e) => {
                 setToken(e.target.value);
                 localStorage.setItem("gramfeed.token", e.target.value);
+                void queryClient.invalidateQueries();
+              }}
