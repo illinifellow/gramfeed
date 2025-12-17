@@ -77,3 +77,4 @@ export function Accounts() {
           },
           {
             width: 180,
+            render: (_, a) => (
