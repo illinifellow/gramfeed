@@ -47,3 +47,6 @@ export function Accounts() {
       <Table<Account>
         rowKey="username"
         loading={accounts.isLoading}
+        dataSource={accounts.data}
+        pagination={{ pageSize: 25, hideOnSinglePage: true }}
+        columns={[
