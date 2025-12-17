@@ -55,3 +55,8 @@ export function Accounts() {
             render: (_, a) => (
               <Space direction="vertical" size={0}>
                 <Typography.Text strong>@{a.username}</Typography.Text>
+                <Typography.Text type="secondary">{a.full_name}</Typography.Text>
+              </Space>
+            ),
+          },
+          { title: "Posts", dataIndex: "posts", width: 90, align: "right" },
