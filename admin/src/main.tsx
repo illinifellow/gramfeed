@@ -5,3 +5,5 @@ import { createRoot } from "react-dom/client";
 import { Accounts } from "./Accounts";
 
 const queryClient = new QueryClient();
+
+function Shell() {
