@@ -6,3 +6,4 @@ export interface Account {
   last_error: string | null;
   paused: boolean;
   feed_url: string;
+}
