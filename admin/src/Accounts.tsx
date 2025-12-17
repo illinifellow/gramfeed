@@ -15,3 +15,6 @@ export function Accounts() {
   const [polling, setPolling] = useState(false);
   const accounts = useQuery({ queryKey: ["accounts"], queryFn: api.accounts, refetchInterval: polling ? 3000 : false });
   const done = () => qc.invalidateQueries({ queryKey: ["accounts"] });
+
+  const add = useMutation({
+    mutationFn: api.add,
