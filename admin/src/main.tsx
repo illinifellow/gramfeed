@@ -3,3 +3,5 @@ import { App as AntApp, ConfigProvider, Input, Layout, Typography, theme } from 
 import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Accounts } from "./Accounts";
+
+const queryClient = new QueryClient();
