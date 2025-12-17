@@ -63,3 +63,5 @@ export function Accounts() {
           {
             title: "Status",
             render: (_, a) =>
+              a.paused ? (
+                <Tooltip title={a.last_error}><Tag color="red">paused</Tag></Tooltip>
