@@ -32,3 +32,4 @@ export function Accounts() {
 
   return (
     <Space direction="vertical" size="large" style={{ width: "100%" }}>
+      <Space.Compact style={{ maxWidth: 480 }}>
