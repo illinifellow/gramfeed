@@ -53,3 +53,5 @@ export function Accounts() {
           {
             title: "Account",
             render: (_, a) => (
+              <Space direction="vertical" size={0}>
+                <Typography.Text strong>@{a.username}</Typography.Text>
