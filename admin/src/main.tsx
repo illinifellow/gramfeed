@@ -37,3 +37,5 @@ function Shell() {
               placeholder="Admin token"
               value={token}
               onChange={(e) => {
+                setToken(e.target.value);
+                localStorage.setItem("gramfeed.token", e.target.value);
