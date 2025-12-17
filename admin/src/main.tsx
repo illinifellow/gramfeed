@@ -34,3 +34,5 @@ function Shell() {
             <Typography.Title level={4} style={{ margin: 0 }}>gramfeed</Typography.Title>
             <Input.Password
               style={{ marginLeft: "auto", maxWidth: 260 }}
+              placeholder="Admin token"
+              value={token}
