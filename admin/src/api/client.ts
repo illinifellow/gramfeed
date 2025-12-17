@@ -5,3 +5,4 @@ export interface Account {
   last_fetched_at: string | null;
   last_error: string | null;
   paused: boolean;
+  feed_url: string;
