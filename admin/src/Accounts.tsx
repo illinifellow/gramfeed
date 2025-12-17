@@ -18,3 +18,12 @@ export function Accounts() {
 
   const add = useMutation({
     mutationFn: api.add,
+    onSuccess: ({ feed_url }) => {
+      message.success(`Feed ready at ${feed_url}`);
+      setUsername("");
+      setPolling(true);
+      setTimeout(() => setPolling(false), 60_000);
+      void done();
+    },
+    onError: (e: Error) => message.error(e.message),
+  });
