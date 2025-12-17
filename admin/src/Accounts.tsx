@@ -51,3 +51,4 @@ export function Accounts() {
         pagination={{ pageSize: 25, hideOnSinglePage: true }}
         columns={[
           {
+            title: "Account",
