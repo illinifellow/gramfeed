@@ -10,3 +10,6 @@ function Shell() {
   const [token, setToken] = useState(localStorage.getItem("gramfeed.token") ?? "");
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
   return (
+    <ConfigProvider
+      theme={{
+        algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
