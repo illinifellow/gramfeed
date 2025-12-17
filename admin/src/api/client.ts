@@ -7,3 +7,5 @@ export interface Account {
   paused: boolean;
   feed_url: string;
 }
+
+const token = () => localStorage.getItem("gramfeed.token") ?? "";
