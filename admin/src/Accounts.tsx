@@ -27,3 +27,4 @@ export function Accounts() {
     },
     onError: (e: Error) => message.error(e.message),
   });
+  const refresh = useMutation({ mutationFn: api.refresh, onSuccess: () => { setPolling(true); void done(); } });
