@@ -20,3 +20,4 @@ function Shell() {
           colorError: "#ff573a",
           colorSuccess: "#57bd8a",
           colorBgLayout: dark ? "#151515" : "#faf6ee",
+          colorBgContainer: dark ? "#1d1d1d" : "#ffffff",
