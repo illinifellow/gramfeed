@@ -9,3 +9,4 @@ const queryClient = new QueryClient();
 function Shell() {
   const [token, setToken] = useState(localStorage.getItem("gramfeed.token") ?? "");
   const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  return (
