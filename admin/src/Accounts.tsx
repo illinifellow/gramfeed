@@ -14,3 +14,4 @@ export function Accounts() {
   // while a refresh is queued the list polls, so the new posts count appears without a reload
   const [polling, setPolling] = useState(false);
   const accounts = useQuery({ queryKey: ["accounts"], queryFn: api.accounts, refetchInterval: polling ? 3000 : false });
+  const done = () => qc.invalidateQueries({ queryKey: ["accounts"] });
