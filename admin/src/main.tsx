@@ -41,3 +41,4 @@ function Shell() {
                 localStorage.setItem("gramfeed.token", e.target.value);
                 void queryClient.invalidateQueries();
               }}
+            />
