@@ -26,3 +26,6 @@ function Shell() {
           borderRadius: 5,
         },
         components: { Tag: { borderRadiusSM: 0 }, Table: { headerBg: dark ? "#151515" : "#f0eadd" } },
+      }}
+    >
+      <AntApp>
