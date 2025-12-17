@@ -65,3 +65,6 @@ export function Accounts() {
             render: (_, a) =>
               a.paused ? (
                 <Tooltip title={a.last_error}><Tag color="red">paused</Tag></Tooltip>
+              ) : a.last_fetched_at ? (
+                <Badge status="success" text={`updated ${dayjs(a.last_fetched_at).fromNow()}`} />
+              ) : (
