@@ -31,3 +31,4 @@ function Shell() {
       <AntApp>
         <Layout style={{ minHeight: "100vh" }}>
           <Layout.Header style={{ display: "flex", alignItems: "center", gap: 16, background: "transparent" }}>
+            <Typography.Title level={4} style={{ margin: 0 }}>gramfeed</Typography.Title>
