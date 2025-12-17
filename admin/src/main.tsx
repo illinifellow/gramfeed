@@ -21,3 +21,8 @@ function Shell() {
           colorSuccess: "#57bd8a",
           colorBgLayout: dark ? "#151515" : "#faf6ee",
           colorBgContainer: dark ? "#1d1d1d" : "#ffffff",
+          colorText: dark ? "#faf6ee" : "#181310",
+          fontFamily: '"DecimaMonoX", "JetBrains Mono", ui-monospace, monospace',
+          borderRadius: 5,
+        },
+        components: { Tag: { borderRadiusSM: 0 }, Table: { headerBg: dark ? "#151515" : "#f0eadd" } },
