@@ -28,3 +28,7 @@ export function Accounts() {
     onError: (e: Error) => message.error(e.message),
   });
   const refresh = useMutation({ mutationFn: api.refresh, onSuccess: () => { setPolling(true); void done(); } });
+  const remove = useMutation({ mutationFn: api.remove, onSuccess: done });
+
+  return (
+    <Space direction="vertical" size="large" style={{ width: "100%" }}>
