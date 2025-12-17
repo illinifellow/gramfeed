@@ -13,3 +13,4 @@ function Shell() {
     <ConfigProvider
       theme={{
         algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        token: {
