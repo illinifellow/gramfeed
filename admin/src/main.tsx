@@ -16,3 +16,4 @@ function Shell() {
         token: {
           colorPrimary: "#006a7a",
           colorLink: "#006a7a",
+          colorWarning: "#ff905c",
