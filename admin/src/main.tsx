@@ -17,3 +17,6 @@ function Shell() {
           colorPrimary: "#006a7a",
           colorLink: "#006a7a",
           colorWarning: "#ff905c",
+          colorError: "#ff573a",
+          colorSuccess: "#57bd8a",
+          colorBgLayout: dark ? "#151515" : "#faf6ee",
