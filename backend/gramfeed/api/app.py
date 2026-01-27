@@ -40,3 +40,7 @@ class AccountOut(BaseModel):
     paused: bool
     feed_url: str
 
+
+@app.get("/{username}.{fmt}", response_class=Response)
+async def feed(username: str, fmt: str, db: Db) -> Response:
+    if fmt not in ("rss", "atom", "xml"):
