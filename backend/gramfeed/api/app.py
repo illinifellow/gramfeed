@@ -89,3 +89,4 @@ async def refresh_account(username: str, db: Db) -> None:
     account.paused = False
     await db.commit()
     enqueue_refresh(username)
+
