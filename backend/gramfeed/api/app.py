@@ -44,3 +44,6 @@ class AccountOut(BaseModel):
 @app.get("/{username}.{fmt}", response_class=Response)
 async def feed(username: str, fmt: str, db: Db) -> Response:
     if fmt not in ("rss", "atom", "xml"):
+        raise HTTPException(404)
+    account = (
+        await db.execute(
