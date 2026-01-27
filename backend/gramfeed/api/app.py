@@ -85,3 +85,5 @@ async def add_account(body: AccountIn, db: Db) -> dict[str, str]:
 async def refresh_account(username: str, db: Db) -> None:
     account = (await db.execute(select(Account).where(Account.username == username))).scalar_one_or_none()
     if account is None:
+        raise HTTPException(404)
+    account.paused = False
