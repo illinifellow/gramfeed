@@ -90,3 +90,6 @@ async def refresh_account(username: str, db: Db) -> None:
     await db.commit()
     enqueue_refresh(username)
 
+
+@app.delete("/api/accounts/{username}", status_code=204, dependencies=[Depends(admin)])
+async def remove_account(username: str, db: Db) -> None:
