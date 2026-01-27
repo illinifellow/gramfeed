@@ -55,3 +55,4 @@ async def feed(username: str, fmt: str, db: Db) -> Response:
     body = build(account, "atom" if fmt == "atom" else "rss")
     media = "application/atom+xml" if fmt == "atom" else "application/rss+xml"
     return Response(body, media_type=f"{media}; charset=utf-8", headers={"Cache-Control": "public, max-age=900"})
+
