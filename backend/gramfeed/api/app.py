@@ -65,3 +65,6 @@ async def accounts(db: Db) -> list[AccountOut]:
     return [
         AccountOut(
             username=a.username, full_name=a.full_name, posts=n, last_fetched_at=a.last_fetched_at,
+            last_error=a.last_error, paused=a.paused, feed_url=f"{settings().public_url}/{a.username}.rss",
+        )
+        for a, n in rows.all()
