@@ -69,3 +69,4 @@ async def accounts(db: Db) -> list[AccountOut]:
         )
         for a, n in rows.all()
     ]
+
