@@ -63,3 +63,4 @@ async def accounts(db: Db) -> list[AccountOut]:
         select(Account, func.count(Post.id)).outerjoin(Post).group_by(Account.id).order_by(Account.username)
     )
     return [
+        AccountOut(
