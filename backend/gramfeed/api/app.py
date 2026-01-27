@@ -76,3 +76,4 @@ async def add_account(body: AccountIn, db: Db) -> dict[str, str]:
     username = body.username.lower()
     if not (await db.execute(select(Account).where(Account.username == username))).scalar_one_or_none():
         db.add(Account(username=username))
+        await db.commit()
