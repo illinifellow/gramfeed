@@ -64,3 +64,4 @@ async def accounts(db: Db) -> list[AccountOut]:
     )
     return [
         AccountOut(
+            username=a.username, full_name=a.full_name, posts=n, last_fetched_at=a.last_fetched_at,
