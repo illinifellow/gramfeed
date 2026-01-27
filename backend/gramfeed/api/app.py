@@ -8,3 +8,7 @@ from pathlib import Path
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
+
+from gramfeed.db.models import Account, Post
+from gramfeed.db.session import session
