@@ -53,3 +53,7 @@ function Shell() {
 }
 
 createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <QueryClientProvider client={queryClient}><Shell /></QueryClientProvider>
+  </StrictMode>,
+);
