@@ -33,3 +33,9 @@ class AccountIn(BaseModel):
 
 class AccountOut(BaseModel):
     username: str
+    full_name: str | None
+    posts: int
+    last_fetched_at: datetime | None
+    last_error: str | None
+    paused: bool
+    feed_url: str
