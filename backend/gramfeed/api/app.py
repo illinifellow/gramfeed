@@ -77,3 +77,9 @@ async def add_account(body: AccountIn, db: Db) -> dict[str, str]:
     if not (await db.execute(select(Account).where(Account.username == username))).scalar_one_or_none():
         db.add(Account(username=username))
         await db.commit()
+    enqueue_refresh(username)
+    return {"feed_url": f"{settings().public_url}/{username}.rss"}
+
+
+@app.post("/api/accounts/{username}/refresh", status_code=202, dependencies=[Depends(admin)])
+async def refresh_account(username: str, db: Db) -> None:
