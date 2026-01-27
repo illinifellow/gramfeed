@@ -56,3 +56,6 @@ async def feed(username: str, fmt: str, db: Db) -> Response:
     media = "application/atom+xml" if fmt == "atom" else "application/rss+xml"
     return Response(body, media_type=f"{media}; charset=utf-8", headers={"Cache-Control": "public, max-age=900"})
 
+
+@app.get("/api/accounts", dependencies=[Depends(admin)])
+async def accounts(db: Db) -> list[AccountOut]:
