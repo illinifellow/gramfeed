@@ -47,3 +47,5 @@ async def feed(username: str, fmt: str, db: Db) -> Response:
         raise HTTPException(404)
     account = (
         await db.execute(
+            select(Account).where(Account.username == username.lower()).options(selectinload(Account.posts).selectinload(Post.media))
+        )
