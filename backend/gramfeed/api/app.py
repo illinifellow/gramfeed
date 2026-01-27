@@ -23,3 +23,5 @@ Db = Annotated[AsyncSession, Depends(session)]
 
 
 def admin(authorization: str = Header("")) -> None:
+    if authorization != f"Bearer {settings().admin_token}":
+        raise HTTPException(401, "admin token required")
