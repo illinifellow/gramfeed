@@ -49,3 +49,5 @@ async def feed(username: str, fmt: str, db: Db) -> Response:
         await db.execute(
             select(Account).where(Account.username == username.lower()).options(selectinload(Account.posts).selectinload(Post.media))
         )
+    ).scalar_one_or_none()
+    if account is None:
