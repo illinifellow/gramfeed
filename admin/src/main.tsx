@@ -51,3 +51,5 @@ function Shell() {
     </ConfigProvider>
   );
 }
+
+createRoot(document.getElementById("root")!).render(
