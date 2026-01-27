@@ -15,3 +15,6 @@ from gramfeed.db.session import session
 from gramfeed.feeds.render import build
 from gramfeed.fetch.jobs import enqueue_refresh
 from gramfeed.settings import settings
+
+app = FastAPI(title="gramfeed", version="0.8.1")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
