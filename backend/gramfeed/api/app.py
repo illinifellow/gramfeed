@@ -39,3 +39,4 @@ class AccountOut(BaseModel):
     last_error: str | None
     paused: bool
     feed_url: str
+
