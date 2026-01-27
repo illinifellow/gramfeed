@@ -87,3 +87,4 @@ async def refresh_account(username: str, db: Db) -> None:
     if account is None:
         raise HTTPException(404)
     account.paused = False
+    await db.commit()
