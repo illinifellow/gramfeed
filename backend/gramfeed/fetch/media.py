@@ -18,3 +18,5 @@ def rehost(url: str, prefix: str) -> str:
         _s3.head_object(Bucket=settings().s3_bucket, Key=key)
         return key
     except _s3.exceptions.ClientError:
+        pass
+    with httpx.stream("GET", url, timeout=60, follow_redirects=True) as r:
