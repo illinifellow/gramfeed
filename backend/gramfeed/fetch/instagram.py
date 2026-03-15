@@ -66,3 +66,7 @@ def _media(post: instaloader.Post) -> list[FetchedMedia]:
         ]
     dims = post._node.get("dimensions", {})
     url = post.video_url if post.is_video else post.url
+    return [FetchedMedia("video" if post.is_video else "image", url, dims.get("width"), dims.get("height"))]
+
+
+def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | None, limit: int) -> FetchedProfile:
