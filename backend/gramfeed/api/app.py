@@ -97,3 +97,6 @@ async def remove_account(username: str, db: Db) -> None:
     if account:
         await db.delete(account)
         await db.commit()
+
+
+@app.get("/opml", dependencies=[Depends(admin)])
