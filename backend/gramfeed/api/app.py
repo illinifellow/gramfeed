@@ -94,3 +94,6 @@ async def refresh_account(username: str, db: Db) -> None:
 @app.delete("/api/accounts/{username}", status_code=204, dependencies=[Depends(admin)])
 async def remove_account(username: str, db: Db) -> None:
     account = (await db.execute(select(Account).where(Account.username == username))).scalar_one_or_none()
+    if account:
+        await db.delete(account)
+        await db.commit()
