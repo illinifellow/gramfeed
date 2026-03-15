@@ -54,3 +54,4 @@ def loader(session_user: str | None) -> instaloader.Instaloader:
         max_connection_attempts=2,
     )
     if session_user:
+        L.load_session_from_file(session_user)
