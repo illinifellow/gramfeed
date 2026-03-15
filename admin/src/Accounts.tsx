@@ -1,0 +1,94 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { App as AntApp, Badge, Button, Input, Popconfirm, Space, Table, Tag, Tooltip, Typography } from "antd";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { useState } from "react";
+import { type Account, api } from "./api/client";
+
+dayjs.extend(relativeTime);
+
+export function Accounts() {
+  const qc = useQueryClient();
+  const { message } = AntApp.useApp();
+  const [username, setUsername] = useState("");
+  // while a refresh is queued the list polls, so the new posts count appears without a reload
+  const [polling, setPolling] = useState(false);
+  const accounts = useQuery({ queryKey: ["accounts"], queryFn: api.accounts, refetchInterval: polling ? 3000 : false });
+  const done = () => qc.invalidateQueries({ queryKey: ["accounts"] });
+
+  const add = useMutation({
+    mutationFn: api.add,
+    onSuccess: ({ feed_url }) => {
+      message.success(`Feed ready at ${feed_url}`);
+      setUsername("");
+      setPolling(true);
+      setTimeout(() => setPolling(false), 60_000);
+      void done();
+    },
+    onError: (e: Error) => message.error(e.message),
+  });
+  const refresh = useMutation({ mutationFn: api.refresh, onSuccess: () => { setPolling(true); void done(); } });
+  const remove = useMutation({ mutationFn: api.remove, onSuccess: done });
+
+  return (
+    <Space direction="vertical" size="large" style={{ width: "100%" }}>
+      <Space.Compact style={{ maxWidth: 480 }}>
+        <Input
+          addonBefore="@"
+          placeholder="natgeo"
+          value={username}
+          onChange={(e) => setUsername(e.target.value.trim())}
+          onPressEnter={() => username && add.mutate(username)}
+        />
+        <Button type="primary" loading={add.isPending} disabled={!username} onClick={() => add.mutate(username)}>
+          Follow
+        </Button>
+      </Space.Compact>
+      <Table<Account>
+        rowKey="username"
+        loading={accounts.isLoading}
+        dataSource={accounts.data}
+        pagination={{ pageSize: 25, hideOnSinglePage: true }}
+        columns={[
+          {
+            title: "Account",
+            render: (_, a) => (
+              <Space direction="vertical" size={0}>
+                <Typography.Text strong>@{a.username}</Typography.Text>
+                <Typography.Text type="secondary">{a.full_name}</Typography.Text>
+              </Space>
+            ),
+          },
+          { title: "Posts", dataIndex: "posts", width: 90, align: "right" },
+          {
+            title: "Status",
+            render: (_, a) =>
+              a.paused ? (
+                <Tooltip title={a.last_error}><Tag color="red">paused</Tag></Tooltip>
+              ) : a.last_fetched_at ? (
+                <Badge status="success" text={`updated ${dayjs(a.last_fetched_at).fromNow()}`} />
+              ) : (
+                <Badge status="processing" text="first fetch queued" />
+              ),
+          },
+          {
+            title: "Feed",
+            render: (_, a) => <Typography.Text copyable={{ text: a.feed_url }} code>{a.feed_url.replace(/^https?:\/\//, "")}</Typography.Text>,
+          },
+          {
+            width: 180,
+            render: (_, a) => (
+              <Space>
+                <Button size="small" onClick={() => refresh.mutate(a.username)}>{a.paused ? "Retry" : "Refresh"}</Button>
+                <Popconfirm title={`Stop following @${a.username}?`} onConfirm={() => remove.mutate(a.username)}>
+                  <Button size="small" danger>Remove</Button>
+                </Popconfirm>
+              </Space>
+            ),
+          },
+        ]}
+      />
+      <Typography.Link href="/opml">Download all feeds as OPML</Typography.Link>
+    </Space>
+  );
+}
