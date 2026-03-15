@@ -29,3 +29,5 @@ async def _refresh(username: str) -> int:
     async with Session() as s:
         account = (await s.execute(select(Account).where(Account.username == username))).scalar_one()
         newest = (
+            await s.execute(select(Post.taken_at).where(Post.account_id == account.id).order_by(Post.taken_at.desc()).limit(1))
+        ).scalar()
