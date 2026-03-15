@@ -15,3 +15,6 @@ from gramfeed.fetch.media import rehost
 from gramfeed.settings import settings
 
 queue = Queue("fetch", connection=Redis.from_url(settings().redis_url))
+
+
+def enqueue_refresh(username: str) -> None:
