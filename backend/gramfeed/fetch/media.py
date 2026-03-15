@@ -24,3 +24,5 @@ def rehost(url: str, prefix: str) -> str:
         _s3.upload_fileobj(
             r.iter_raw(),  # type: ignore[arg-type]
             settings().s3_bucket,
+            key,
+            ExtraArgs={"ContentType": r.headers.get("content-type", "image/jpeg"), "CacheControl": "public, max-age=31536000"},
