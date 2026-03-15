@@ -70,3 +70,7 @@ def _media(post: instaloader.Post) -> list[FetchedMedia]:
 
 
 def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | None, limit: int) -> FetchedProfile:
+    try:
+        profile = instaloader.Profile.from_username(L.context, username)
+    except (instaloader.ProfileNotExistsException, instaloader.LoginRequiredException) as e:
+        raise AccountUnavailable(str(e)) from e
