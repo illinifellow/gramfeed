@@ -55,3 +55,4 @@ def loader(session_user: str | None) -> instaloader.Instaloader:
     )
     if session_user:
         L.load_session_from_file(session_user)
+    return L
