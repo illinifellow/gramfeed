@@ -18,3 +18,18 @@ def rehost(url: str, prefix: str) -> str:
         _s3.head_object(Bucket=settings().s3_bucket, Key=key)
         return key
     except _s3.exceptions.ClientError:
+        pass
+    with httpx.stream("GET", url, timeout=60, follow_redirects=True) as r:
+        r.raise_for_status()
+        _s3.upload_fileobj(
+            r.iter_raw(),  # type: ignore[arg-type]
+            settings().s3_bucket,
+            key,
+            ExtraArgs={"ContentType": r.headers.get("content-type", "image/jpeg"), "CacheControl": "public, max-age=31536000"},
+        )
+    return key
+
+
+def public_url(key: str) -> str:
+    base = settings().s3_public_url or f"https://{settings().s3_bucket}.s3.amazonaws.com"
+    return f"{base}/{key}"
