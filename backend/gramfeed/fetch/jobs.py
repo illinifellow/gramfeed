@@ -23,3 +23,9 @@ def enqueue_refresh(username: str) -> None:
 
 def refresh(username: str) -> int:
     return asyncio.run(_refresh(username))
+
+
+async def _refresh(username: str) -> int:
+    async with Session() as s:
+        account = (await s.execute(select(Account).where(Account.username == username))).scalar_one()
+        newest = (
