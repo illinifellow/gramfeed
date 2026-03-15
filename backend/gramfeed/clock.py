@@ -4,3 +4,7 @@ import time
 
 from gramfeed.fetch.jobs import schedule_all
 from gramfeed.settings import settings
+
+if __name__ == "__main__":
+    while True:
+        schedule_all()
