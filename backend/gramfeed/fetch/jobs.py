@@ -51,3 +51,6 @@ async def _refresh(username: str) -> int:
         await s.commit()
         return len(profile.posts)
 
+
+def schedule_all() -> None:
+    """Called by the clock process: queue every active account, spread across the refresh interval."""
