@@ -57,3 +57,6 @@ def schedule_all() -> None:
     async def usernames() -> list[str]:
         async with Session() as s:
             return list((await s.execute(select(Account.username).where(Account.paused.is_(False)))).scalars())
+
+    names = asyncio.run(usernames())
+    spacing = settings().refresh_minutes * 60 / max(1, len(names))
