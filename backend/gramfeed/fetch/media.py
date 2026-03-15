@@ -29,3 +29,7 @@ def rehost(url: str, prefix: str) -> str:
         )
     return key
 
+
+def public_url(key: str) -> str:
+    base = settings().s3_public_url or f"https://{settings().s3_bucket}.s3.amazonaws.com"
+    return f"{base}/{key}"
