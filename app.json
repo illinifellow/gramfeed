@@ -1,1 +1,4 @@
 {
+  "name": "gramfeed",
+  "description": "Instagram accounts as RSS feeds, on your own Heroku app.",
+  "repository": "https://github.com/illinifellow/gramfeed",
