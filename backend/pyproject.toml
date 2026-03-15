@@ -1,6 +1,6 @@
 [project]
 name = "gramfeed"
-version = "0.4.0"
+version = "0.5.0"
 description = "Self-hosted Instagram to RSS bridge: follow public accounts in your feed reader."
 requires-python = ">=3.12"
 dependencies = [
