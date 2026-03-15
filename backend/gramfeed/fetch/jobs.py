@@ -55,3 +55,5 @@ async def _refresh(username: str) -> int:
 def schedule_all() -> None:
     """Called by the clock process: queue every active account, spread across the refresh interval."""
     async def usernames() -> list[str]:
+        async with Session() as s:
+            return list((await s.execute(select(Account.username).where(Account.paused.is_(False)))).scalars())
