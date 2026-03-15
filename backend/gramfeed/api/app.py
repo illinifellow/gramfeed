@@ -109,3 +109,11 @@ async def opml(db: Db) -> Response:
     )
     body = f'<?xml version="1.0"?>\n<opml version="2.0">\n  <head><title>gramfeed</title></head>\n  <body>\n{outlines}\n  </body>\n</opml>\n'
     return Response(body, media_type="text/x-opml")
+
+
+static = Path(__file__).parent.parent / "static"
+if static.exists():
+    app.mount("/admin", StaticFiles(directory=static, html=True), name="admin")
+
+
+@app.get("/healthz")
