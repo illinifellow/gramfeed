@@ -49,3 +49,5 @@ async def _refresh(username: str) -> int:
             account.posts.append(post)
         account.last_fetched_at, account.last_error = datetime.now(UTC), None
         await s.commit()
+        return len(profile.posts)
+
