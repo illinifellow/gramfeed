@@ -37,3 +37,7 @@ async def _refresh(username: str) -> int:
             account.paused, account.last_error = True, str(e)
             await s.commit()
             return 0
+
+        account.full_name, account.biography = profile.full_name, profile.biography
+        account.avatar_key = rehost(profile.avatar_url, f"{username}/avatar")
+        for p in profile.posts:
