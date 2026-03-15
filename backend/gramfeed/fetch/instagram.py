@@ -47,3 +47,7 @@ class AccountUnavailable(Exception):
 
 def loader(session_user: str | None) -> instaloader.Instaloader:
     L = instaloader.Instaloader(
+        download_pictures=False,
+        download_videos=False,
+        save_metadata=False,
+        quiet=True,
