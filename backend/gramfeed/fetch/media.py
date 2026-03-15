@@ -22,3 +22,5 @@ def rehost(url: str, prefix: str) -> str:
     with httpx.stream("GET", url, timeout=60, follow_redirects=True) as r:
         r.raise_for_status()
         _s3.upload_fileobj(
+            r.iter_raw(),  # type: ignore[arg-type]
+            settings().s3_bucket,
