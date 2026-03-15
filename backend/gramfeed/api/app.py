@@ -103,3 +103,5 @@ async def remove_account(username: str, db: Db) -> None:
 async def opml(db: Db) -> Response:
     """Every feed as OPML, for importing into a reader in one go."""
     names = (await db.execute(select(Account.username).order_by(Account.username))).scalars()
+    outlines = "\n".join(
+        f'    <outline type="rss" text="@{n}" xmlUrl="{settings().public_url}/{n}.rss" htmlUrl="https://www.instagram.com/{n}/"/>'
