@@ -42,3 +42,6 @@ async def _refresh(username: str) -> int:
         account.avatar_key = rehost(profile.avatar_url, f"{username}/avatar")
         for p in profile.posts:
             post = Post(shortcode=p.shortcode, taken_at=p.taken_at, caption=p.caption, kind=p.kind, location=p.location)
+            post.media = [
+                Media(position=i, kind=m.kind, key=rehost(m.url, f"{username}/{p.shortcode}"), width=m.width, height=m.height)
+                for i, m in enumerate(p.media)
