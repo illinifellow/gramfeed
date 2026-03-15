@@ -63,3 +63,4 @@ def _media(post: instaloader.Post) -> list[FetchedMedia]:
         return [
             FetchedMedia("video" if n.is_video else "image", n.video_url if n.is_video else n.display_url, None, None)
             for n in post.get_sidecar_nodes()
+        ]
