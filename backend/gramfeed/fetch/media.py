@@ -26,3 +26,5 @@ def rehost(url: str, prefix: str) -> str:
             settings().s3_bucket,
             key,
             ExtraArgs={"ContentType": r.headers.get("content-type", "image/jpeg"), "CacheControl": "public, max-age=31536000"},
+        )
+    return key
