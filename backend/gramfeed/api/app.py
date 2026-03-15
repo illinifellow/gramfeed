@@ -105,3 +105,4 @@ async def opml(db: Db) -> Response:
     names = (await db.execute(select(Account.username).order_by(Account.username))).scalars()
     outlines = "\n".join(
         f'    <outline type="rss" text="@{n}" xmlUrl="{settings().public_url}/{n}.rss" htmlUrl="https://www.instagram.com/{n}/"/>'
+        for n in names
