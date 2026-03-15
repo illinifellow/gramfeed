@@ -1,3 +1,6 @@
 services:
   db:
     image: postgres:17
+    environment: { POSTGRES_USER: gramfeed, POSTGRES_PASSWORD: gramfeed }
+    ports: ["5432:5432"]
+  redis:
