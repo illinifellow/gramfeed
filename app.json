@@ -8,3 +8,4 @@
     "GRAMFEED_ADMIN_TOKEN": { "description": "Bearer token for the admin API", "generator": "secret" },
     "GRAMFEED_PUBLIC_URL": { "description": "https://<your-app>.herokuapp.com" },
     "GRAMFEED_REFRESH_MINUTES": { "value": "60" }
+  },
