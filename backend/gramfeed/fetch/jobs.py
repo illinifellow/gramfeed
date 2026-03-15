@@ -13,3 +13,5 @@ from gramfeed.db.session import Session
 from gramfeed.fetch.instagram import AccountUnavailable, fetch_profile, loader
 from gramfeed.fetch.media import rehost
 from gramfeed.settings import settings
+
+queue = Queue("fetch", connection=Redis.from_url(settings().redis_url))
