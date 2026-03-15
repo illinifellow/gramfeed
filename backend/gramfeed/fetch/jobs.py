@@ -60,3 +60,4 @@ def schedule_all() -> None:
 
     names = asyncio.run(usernames())
     spacing = settings().refresh_minutes * 60 / max(1, len(names))
+    for i, name in enumerate(names):
