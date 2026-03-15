@@ -2,3 +2,9 @@
   "name": "gramfeed",
   "description": "Instagram accounts as RSS feeds, on your own Heroku app.",
   "repository": "https://github.com/illinifellow/gramfeed",
+  "keywords": ["instagram", "rss", "fastapi"],
+  "addons": ["heroku-postgresql:essential-0", "heroku-redis:mini", "bucketeer:hobbyist"],
+  "env": {
+    "GRAMFEED_ADMIN_TOKEN": { "description": "Bearer token for the admin API", "generator": "secret" },
+    "GRAMFEED_PUBLIC_URL": { "description": "https://<your-app>.herokuapp.com" },
+    "GRAMFEED_REFRESH_MINUTES": { "value": "60" }
