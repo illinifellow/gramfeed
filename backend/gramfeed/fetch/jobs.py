@@ -41,3 +41,4 @@ async def _refresh(username: str) -> int:
         account.full_name, account.biography = profile.full_name, profile.biography
         account.avatar_key = rehost(profile.avatar_url, f"{username}/avatar")
         for p in profile.posts:
+            post = Post(shortcode=p.shortcode, taken_at=p.taken_at, caption=p.caption, kind=p.kind, location=p.location)
