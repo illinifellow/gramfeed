@@ -31,3 +31,9 @@ async def _refresh(username: str) -> int:
         newest = (
             await s.execute(select(Post.taken_at).where(Post.account_id == account.id).order_by(Post.taken_at.desc()).limit(1))
         ).scalar()
+        try:
+            profile = fetch_profile(loader(settings().instagram_session_user), username, newest, settings().max_posts_per_feed)
+        except AccountUnavailable as e:
+            account.paused, account.last_error = True, str(e)
+            await s.commit()
+            return 0
