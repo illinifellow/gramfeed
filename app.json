@@ -10,3 +10,5 @@
     "GRAMFEED_REFRESH_MINUTES": { "value": "60" }
   },
   "formation": { "web": { "quantity": 1, "size": "basic" }, "worker": { "quantity": 1, "size": "basic" }, "clock": { "quantity": 1, "size": "basic" } },
+  "buildpacks": [{ "url": "heroku/python" }]
+}
