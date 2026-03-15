@@ -106,3 +106,6 @@ async def opml(db: Db) -> Response:
     outlines = "\n".join(
         f'    <outline type="rss" text="@{n}" xmlUrl="{settings().public_url}/{n}.rss" htmlUrl="https://www.instagram.com/{n}/"/>'
         for n in names
+    )
+    body = f'<?xml version="1.0"?>\n<opml version="2.0">\n  <head><title>gramfeed</title></head>\n  <body>\n{outlines}\n  </body>\n</opml>\n'
+    return Response(body, media_type="text/x-opml")
