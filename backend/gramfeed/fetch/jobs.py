@@ -2,3 +2,6 @@
 rate-limits by IP, and a burst of forty profiles is what gets a server blocked."""
 
 import asyncio
+from datetime import UTC, datetime
+
+from redis import Redis
