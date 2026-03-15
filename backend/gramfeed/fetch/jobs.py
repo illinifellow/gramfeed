@@ -19,3 +19,7 @@ queue = Queue("fetch", connection=Redis.from_url(settings().redis_url))
 
 def enqueue_refresh(username: str) -> None:
     queue.enqueue(refresh, username, job_id=f"refresh:{username}", retry=Retry(max=3, interval=[300, 900, 3600]))
+
+
+def refresh(username: str) -> int:
+    return asyncio.run(_refresh(username))
