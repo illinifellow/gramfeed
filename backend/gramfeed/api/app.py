@@ -117,3 +117,5 @@ if static.exists():
 
 
 @app.get("/healthz")
+async def health() -> dict[str, bool]:
+    return {"ok": True}
