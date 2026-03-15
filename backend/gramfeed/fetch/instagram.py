@@ -61,3 +61,4 @@ def loader(session_user: str | None) -> instaloader.Instaloader:
 def _media(post: instaloader.Post) -> list[FetchedMedia]:
     if post.typename == "GraphSidecar":
         return [
+            FetchedMedia("video" if n.is_video else "image", n.video_url if n.is_video else n.display_url, None, None)
