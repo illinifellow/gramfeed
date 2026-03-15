@@ -45,3 +45,7 @@ async def _refresh(username: str) -> int:
             post.media = [
                 Media(position=i, kind=m.kind, key=rehost(m.url, f"{username}/{p.shortcode}"), width=m.width, height=m.height)
                 for i, m in enumerate(p.media)
+            ]
+            account.posts.append(post)
+        account.last_fetched_at, account.last_error = datetime.now(UTC), None
+        await s.commit()
