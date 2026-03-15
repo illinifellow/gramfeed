@@ -51,3 +51,6 @@ def loader(session_user: str | None) -> instaloader.Instaloader:
         download_videos=False,
         save_metadata=False,
         quiet=True,
+        max_connection_attempts=2,
+    )
+    if session_user:
