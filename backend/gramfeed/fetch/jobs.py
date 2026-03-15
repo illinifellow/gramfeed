@@ -61,3 +61,4 @@ def schedule_all() -> None:
     names = asyncio.run(usernames())
     spacing = settings().refresh_minutes * 60 / max(1, len(names))
     for i, name in enumerate(names):
+        queue.enqueue_in(__import__("datetime").timedelta(seconds=i * spacing), refresh, name, job_id=f"refresh:{name}")
