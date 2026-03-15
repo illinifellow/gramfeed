@@ -100,3 +100,5 @@ async def remove_account(username: str, db: Db) -> None:
 
 
 @app.get("/opml", dependencies=[Depends(admin)])
+async def opml(db: Db) -> Response:
+    """Every feed as OPML, for importing into a reader in one go."""
