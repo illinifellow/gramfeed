@@ -74,3 +74,7 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
         profile = instaloader.Profile.from_username(L.context, username)
     except (instaloader.ProfileNotExistsException, instaloader.LoginRequiredException) as e:
         raise AccountUnavailable(str(e)) from e
+    if profile.is_private:
+        raise AccountUnavailable(f"@{username} is private")
+
+    posts: list[FetchedPost] = []
