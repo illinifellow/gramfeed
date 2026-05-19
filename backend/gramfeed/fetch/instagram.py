@@ -78,3 +78,8 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
         raise AccountUnavailable(f"@{username} is private")
 
     posts: list[FetchedPost] = []
+    for post in islice(profile.get_posts(), limit):
+        taken = post.date_utc.replace(tzinfo=UTC)
+        # posts come newest first, but a pinned post can be old; skip it rather than stop
+        if since and taken <= since and not post.is_pinned:
+            break
