@@ -83,3 +83,4 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
         # posts come newest first, but a pinned post can be old; skip it rather than stop
         if since and taken <= since and not post.is_pinned:
             break
+        posts.append(
