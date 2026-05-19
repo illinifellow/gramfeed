@@ -84,3 +84,4 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
         if since and taken <= since and not post.is_pinned:
             break
         posts.append(
+            FetchedPost(
