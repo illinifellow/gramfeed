@@ -47,3 +47,57 @@ class AccountUnavailable(Exception):
 
 def loader(session_user: str | None) -> instaloader.Instaloader:
     L = instaloader.Instaloader(
+        download_pictures=False,
+        download_videos=False,
+        save_metadata=False,
+        quiet=True,
+        max_connection_attempts=2,
+    )
+    if session_user:
+        L.load_session_from_file(session_user)
+    return L
+
+
+def _media(post: instaloader.Post) -> list[FetchedMedia]:
+    if post.typename == "GraphSidecar":
+        return [
+            FetchedMedia("video" if n.is_video else "image", n.video_url if n.is_video else n.display_url, None, None)
+            for n in post.get_sidecar_nodes()
+        ]
+    dims = post._node.get("dimensions", {})
+    url = post.video_url if post.is_video else post.url
+    return [FetchedMedia("video" if post.is_video else "image", url, dims.get("width"), dims.get("height"))]
+
+
+def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | None, limit: int) -> FetchedProfile:
+    try:
+        profile = instaloader.Profile.from_username(L.context, username)
+    except (instaloader.ProfileNotExistsException, instaloader.LoginRequiredException) as e:
+        raise AccountUnavailable(str(e)) from e
+    if profile.is_private:
+        raise AccountUnavailable(f"@{username} is private")
+
+    posts: list[FetchedPost] = []
+    for post in islice(profile.get_posts(), limit):
+        taken = post.date_utc.replace(tzinfo=UTC)
+        # posts come newest first, but a pinned post can be old; skip it rather than stop
+        if since and taken <= since and not post.is_pinned:
+            break
+        posts.append(
+            FetchedPost(
+                shortcode=post.shortcode,
+                taken_at=taken,
+                caption=post.caption,
+                kind={"GraphSidecar": "carousel", "GraphVideo": "video"}.get(post.typename, "image"),
+                location=post.location.name if post.location else None,
+                media=_media(post),
+            )
+        )
+    return FetchedProfile(
+        username=profile.username,
+        full_name=profile.full_name or None,
+        biography=profile.biography or None,
+        avatar_url=profile.profile_pic_url,
+        private=profile.is_private,
+        posts=posts,
+    )
