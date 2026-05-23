@@ -29,3 +29,4 @@ class FetchedStory:
     taken_at: datetime
     expires_at: datetime
     media: FetchedStoryMedia
+    caption: str | None = None
