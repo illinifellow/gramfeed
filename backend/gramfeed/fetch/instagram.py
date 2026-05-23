@@ -96,3 +96,6 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
     return FetchedProfile(
         username=profile.username,
         full_name=profile.full_name or None,
+        biography=profile.biography or None,
+        avatar_url=profile.profile_pic_url,
+        private=profile.is_private,
