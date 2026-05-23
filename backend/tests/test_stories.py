@@ -36,3 +36,4 @@ def test_story_items_keep_expiry(monkeypatch):
         _node={},
     )
     monkeypatch.setattr(stories.instaloader.Profile, "from_username", lambda _context, _username: profile)
+    monkeypatch.setattr(stories, "rehost", lambda *_args: "alice/stories/99.mp4")
