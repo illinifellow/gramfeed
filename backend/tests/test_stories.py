@@ -27,3 +27,6 @@ def test_story_items_keep_expiry(monkeypatch):
     now = datetime(2026, 5, 1, 12, tzinfo=UTC)
     profile = SimpleNamespace(userid=42)
     item = SimpleNamespace(
+        mediaid="99",
+        is_video=True,
+        video_url="https://cdn.instagram.test/story.mp4",
