@@ -99,3 +99,4 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
         biography=profile.biography or None,
         avatar_url=profile.profile_pic_url,
         private=profile.is_private,
+        posts=posts,
