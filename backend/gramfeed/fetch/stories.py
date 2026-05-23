@@ -19,3 +19,4 @@ from gramfeed.fetch.media import rehost
 class FetchedStoryMedia:
     kind: str
     key: str
+    width: int | None
