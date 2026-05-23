@@ -13,3 +13,8 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
         url="https://cdn.instagram.test/story.jpg",
         date_utc=datetime(2026, 5, 1, 12, tzinfo=UTC),
         expiring_utc=datetime(2026, 5, 2, 12, tzinfo=UTC),
+        caption="rainbow",
+        _node={"dimensions": {"width": 1080, "height": 1920}},
+    )
+    media = stories._story_media(item, "alice")
+    assert media.kind == "image"
