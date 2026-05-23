@@ -45,3 +45,8 @@ def _story_media(item, username: str) -> FetchedStoryMedia:
     if not url:
         raise AccountUnavailable(f"story {getattr(item, 'mediaid', '?')} has no media url")
     key = rehost(str(url), f"{username}/stories/{getattr(item, 'mediaid', 'story')}")
+    return FetchedStoryMedia("video" if is_video else "image", key, width, height)
+
+
+def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStory]:
+    """Fetches stories for one followed account with the loaded Instagram session."""
