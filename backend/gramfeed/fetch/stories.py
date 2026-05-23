@@ -60,3 +60,9 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
     fetched: list[FetchedStory] = []
     for item in items:
         taken = item.date_utc.replace(tzinfo=UTC)
+        expires = item.expiring_utc.replace(tzinfo=UTC)
+        fetched.append(
+            FetchedStory(
+                media_id=str(item.mediaid),
+                taken_at=taken,
+                expires_at=expires,
