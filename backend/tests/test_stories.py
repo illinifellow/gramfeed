@@ -34,3 +34,5 @@ def test_story_items_keep_expiry(monkeypatch):
         expiring_utc=now + timedelta(hours=24),
         caption=None,
         _node={},
+    )
+    monkeypatch.setattr(stories.instaloader.Profile, "from_username", lambda _context, _username: profile)
