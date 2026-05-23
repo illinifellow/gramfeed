@@ -10,3 +10,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
     item = SimpleNamespace(
         mediaid=1,
         is_video=False,
+        url="https://cdn.instagram.test/story.jpg",
