@@ -20,3 +20,8 @@ class FetchedStoryMedia:
     kind: str
     key: str
     width: int | None
+    height: int | None
+
+
+@dataclass
+class FetchedStory:
