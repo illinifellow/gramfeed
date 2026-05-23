@@ -30,3 +30,7 @@ class FetchedStory:
     expires_at: datetime
     media: FetchedStoryMedia
     caption: str | None = None
+
+
+def _dims(node: dict) -> tuple[int | None, int | None]:
+    dims = node.get("dimensions") or {}
