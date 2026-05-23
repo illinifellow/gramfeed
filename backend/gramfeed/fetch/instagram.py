@@ -85,3 +85,5 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
             break
         posts.append(
             FetchedPost(
+                shortcode=post.shortcode,
+                taken_at=taken,
