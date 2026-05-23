@@ -53,3 +53,4 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
     try:
         profile = instaloader.Profile.from_username(L.context, username)
         stories = L.get_stories(userids=[profile.userid])
+    except (instaloader.ProfileNotExistsException, instaloader.LoginRequiredException) as e:
