@@ -58,3 +58,4 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
 
     items: Iterable = chain.from_iterable(story.get_items() for story in stories)
     fetched: list[FetchedStory] = []
+    for item in items:
