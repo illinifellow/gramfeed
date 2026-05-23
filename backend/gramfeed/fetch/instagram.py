@@ -89,3 +89,4 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
                 taken_at=taken,
                 caption=post.caption,
                 kind={"GraphSidecar": "carousel", "GraphVideo": "video"}.get(post.typename, "image"),
+                location=post.location.name if post.location else None,
