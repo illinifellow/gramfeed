@@ -18,3 +18,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
     )
     media = stories._story_media(item, "alice")
     assert media.kind == "image"
+    assert media.key == "alice/stories/1.jpg"
