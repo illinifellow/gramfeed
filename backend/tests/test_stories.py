@@ -30,3 +30,7 @@ def test_story_items_keep_expiry(monkeypatch):
         mediaid="99",
         is_video=True,
         video_url="https://cdn.instagram.test/story.mp4",
+        date_utc=now,
+        expiring_utc=now + timedelta(hours=24),
+        caption=None,
+        _node={},
