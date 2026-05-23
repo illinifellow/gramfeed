@@ -43,3 +43,5 @@ def _story_media(item, username: str) -> FetchedStoryMedia:
     is_video = bool(getattr(item, "is_video", False))
     url = getattr(item, "video_url", None) if is_video else getattr(item, "url", None)
     if not url:
+        raise AccountUnavailable(f"story {getattr(item, 'mediaid', '?')} has no media url")
+    key = rehost(str(url), f"{username}/stories/{getattr(item, 'mediaid', 'story')}")
