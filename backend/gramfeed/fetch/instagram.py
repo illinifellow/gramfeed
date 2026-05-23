@@ -92,3 +92,4 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
                 location=post.location.name if post.location else None,
                 media=_media(post),
             )
+        )
