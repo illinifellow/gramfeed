@@ -50,3 +50,5 @@ def _story_media(item, username: str) -> FetchedStoryMedia:
 
 def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStory]:
     """Fetches stories for one followed account with the loaded Instagram session."""
+    try:
+        profile = instaloader.Profile.from_username(L.context, username)
