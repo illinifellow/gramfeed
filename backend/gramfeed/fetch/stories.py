@@ -36,3 +36,7 @@ def _dims(node: dict) -> tuple[int | None, int | None]:
     dims = node.get("dimensions") or {}
     return dims.get("width"), dims.get("height")
 
+
+def _story_media(item, username: str) -> FetchedStoryMedia:
+    node = getattr(item, "_node", {})
+    width, height = _dims(node)
