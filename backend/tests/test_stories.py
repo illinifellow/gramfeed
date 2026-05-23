@@ -37,3 +37,7 @@ def test_story_items_keep_expiry(monkeypatch):
     )
     monkeypatch.setattr(stories.instaloader.Profile, "from_username", lambda _context, _username: profile)
     monkeypatch.setattr(stories, "rehost", lambda *_args: "alice/stories/99.mp4")
+    loader = SimpleNamespace(context=object(), get_stories=lambda userids: [SimpleNamespace(get_items=lambda: [item])])
+    [story] = stories.fetch_stories(loader, "alice")
+    assert story.media_id == "99"
+    assert story.expires_at == now + timedelta(hours=24)
