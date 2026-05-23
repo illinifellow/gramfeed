@@ -87,3 +87,5 @@ def fetch_profile(L: instaloader.Instaloader, username: str, since: datetime | N
             FetchedPost(
                 shortcode=post.shortcode,
                 taken_at=taken,
+                caption=post.caption,
+                kind={"GraphSidecar": "carousel", "GraphVideo": "video"}.get(post.typename, "image"),
