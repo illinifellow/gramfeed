@@ -52,3 +52,4 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
     """Fetches stories for one followed account with the loaded Instagram session."""
     try:
         profile = instaloader.Profile.from_username(L.context, username)
+        stories = L.get_stories(userids=[profile.userid])
