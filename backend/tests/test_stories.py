@@ -41,3 +41,4 @@ def test_story_items_keep_expiry(monkeypatch):
     [story] = stories.fetch_stories(loader, "alice")
     assert story.media_id == "99"
     assert story.expires_at == now + timedelta(hours=24)
+    assert story.media.kind == "video"
