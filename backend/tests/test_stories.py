@@ -12,3 +12,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
         is_video=False,
         url="https://cdn.instagram.test/story.jpg",
         date_utc=datetime(2026, 5, 1, 12, tzinfo=UTC),
+        expiring_utc=datetime(2026, 5, 2, 12, tzinfo=UTC),
