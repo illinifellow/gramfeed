@@ -12,3 +12,4 @@ from typing import Iterable
 import instaloader
 
 from gramfeed.fetch.instagram import AccountUnavailable
+from gramfeed.fetch.media import rehost
