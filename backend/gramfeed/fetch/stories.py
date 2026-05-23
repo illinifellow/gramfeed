@@ -17,3 +17,5 @@ from gramfeed.fetch.media import rehost
 
 @dataclass
 class FetchedStoryMedia:
+    kind: str
+    key: str
