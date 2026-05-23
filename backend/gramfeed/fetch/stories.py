@@ -34,3 +34,4 @@ class FetchedStory:
 
 def _dims(node: dict) -> tuple[int | None, int | None]:
     dims = node.get("dimensions") or {}
+    return dims.get("width"), dims.get("height")
