@@ -25,3 +25,5 @@ class FetchedStoryMedia:
 
 @dataclass
 class FetchedStory:
+    media_id: str
+    taken_at: datetime
