@@ -22,3 +22,7 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
     assert media.width == 1080
     assert calls == [("https://cdn.instagram.test/story.jpg", "alice/stories/1")]
 
+
+def test_story_items_keep_expiry(monkeypatch):
+    now = datetime(2026, 5, 1, 12, tzinfo=UTC)
+    profile = SimpleNamespace(userid=42)
