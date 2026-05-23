@@ -54,3 +54,7 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
         profile = instaloader.Profile.from_username(L.context, username)
         stories = L.get_stories(userids=[profile.userid])
     except (instaloader.ProfileNotExistsException, instaloader.LoginRequiredException) as e:
+        raise AccountUnavailable(str(e)) from e
+
+    items: Iterable = chain.from_iterable(story.get_items() for story in stories)
+    fetched: list[FetchedStory] = []
