@@ -27,3 +27,4 @@ class FetchedStoryMedia:
 class FetchedStory:
     media_id: str
     taken_at: datetime
+    expires_at: datetime
