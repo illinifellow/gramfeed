@@ -26,3 +26,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
 def test_story_items_keep_expiry(monkeypatch):
     now = datetime(2026, 5, 1, 12, tzinfo=UTC)
     profile = SimpleNamespace(userid=42)
+    item = SimpleNamespace(
