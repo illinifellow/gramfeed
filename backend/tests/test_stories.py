@@ -11,3 +11,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
         mediaid=1,
         is_video=False,
         url="https://cdn.instagram.test/story.jpg",
+        date_utc=datetime(2026, 5, 1, 12, tzinfo=UTC),
