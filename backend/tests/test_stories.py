@@ -21,3 +21,4 @@ def test_story_media_is_rehosted_immediately(monkeypatch):
     assert media.key == "alice/stories/1.jpg"
     assert media.width == 1080
     assert calls == [("https://cdn.instagram.test/story.jpg", "alice/stories/1")]
+
