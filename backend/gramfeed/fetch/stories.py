@@ -40,3 +40,6 @@ def _dims(node: dict) -> tuple[int | None, int | None]:
 def _story_media(item, username: str) -> FetchedStoryMedia:
     node = getattr(item, "_node", {})
     width, height = _dims(node)
+    is_video = bool(getattr(item, "is_video", False))
+    url = getattr(item, "video_url", None) if is_video else getattr(item, "url", None)
+    if not url:
