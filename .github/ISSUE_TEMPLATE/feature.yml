@@ -2,3 +2,4 @@ name: Feature request
 description: An idea for something new
 labels: [enhancement]
 body:
+  - type: textarea
