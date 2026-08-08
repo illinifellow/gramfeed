@@ -25,3 +25,4 @@ body:
     attributes:
       label: Version
       placeholder: 0.8.1
+    validations:
