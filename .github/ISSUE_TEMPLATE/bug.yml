@@ -4,3 +4,5 @@ labels: [bug, triage]
 body:
   - type: markdown
     attributes:
+      value: Thanks for taking the time. The more exact, the faster it gets fixed.
+  - type: textarea
