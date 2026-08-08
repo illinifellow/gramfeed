@@ -16,3 +16,4 @@ body:
     id: repro
     attributes:
       label: Steps to reproduce
+      placeholder: |
