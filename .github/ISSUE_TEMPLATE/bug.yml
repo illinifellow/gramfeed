@@ -14,3 +14,5 @@ body:
       required: true
   - type: textarea
     id: repro
+    attributes:
+      label: Steps to reproduce
