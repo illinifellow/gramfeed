@@ -10,3 +10,5 @@ body:
       required: true
   - type: textarea
     id: idea
+    attributes:
+      label: How could it work?
