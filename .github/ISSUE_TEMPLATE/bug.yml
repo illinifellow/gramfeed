@@ -17,3 +17,11 @@ body:
     attributes:
       label: Steps to reproduce
       placeholder: |
+        1.
+        2.
+        3.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.8.1
