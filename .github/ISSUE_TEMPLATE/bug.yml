@@ -6,3 +6,5 @@ body:
     attributes:
       value: Thanks for taking the time. The more exact, the faster it gets fixed.
   - type: textarea
+    id: what
+    attributes:
