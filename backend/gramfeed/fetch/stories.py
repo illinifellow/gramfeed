@@ -66,3 +66,5 @@ def fetch_stories(L: instaloader.Instaloader, username: str) -> list[FetchedStor
                 media_id=str(item.mediaid),
                 taken_at=taken,
                 expires_at=expires,
+                caption=getattr(item, "caption", None),
+                media=_story_media(item, username),
