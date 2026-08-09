@@ -1,2 +1,5 @@
 name: tests
 on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
