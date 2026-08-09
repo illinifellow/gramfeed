@@ -39,3 +39,4 @@ body:
       options: [Feedly, NetNewsWire, Miniflux, Inoreader, FreshRSS, other]
   - type: textarea
     id: logs
+    attributes:
