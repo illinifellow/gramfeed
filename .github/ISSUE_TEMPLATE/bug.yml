@@ -29,3 +29,5 @@ body:
       required: true
   - type: input
     id: account
+    attributes:
+      label: Instagram account
