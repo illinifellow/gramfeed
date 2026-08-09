@@ -7,3 +7,5 @@ on:
   schedule:
     - cron: "25 4 * * 1"
 jobs:
+  analyze:
+    runs-on: ubuntu-latest
