@@ -31,3 +31,4 @@ body:
     id: account
     attributes:
       label: Instagram account
+      description: The public account whose feed is wrong.
