@@ -27,3 +27,4 @@ body:
       placeholder: 0.8.1
     validations:
       required: true
+  - type: input
