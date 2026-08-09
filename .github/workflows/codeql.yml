@@ -12,3 +12,7 @@ jobs:
     permissions:
       security-events: write
     strategy:
+      matrix:
+        language: [python, javascript-typescript]
+    steps:
+      - uses: actions/checkout@v4
