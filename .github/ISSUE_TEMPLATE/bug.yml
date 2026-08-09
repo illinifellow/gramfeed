@@ -35,3 +35,7 @@ body:
   - type: dropdown
     id: reader
     attributes:
+      label: Feed reader
+      options: [Feedly, NetNewsWire, Miniflux, Inoreader, FreshRSS, other]
+  - type: textarea
+    id: logs
