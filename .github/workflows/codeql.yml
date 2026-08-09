@@ -5,3 +5,5 @@ on:
   pull_request:
     branches: [master, dev]
   schedule:
+    - cron: "25 4 * * 1"
+jobs:
