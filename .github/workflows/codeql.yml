@@ -9,3 +9,4 @@ on:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    permissions:
