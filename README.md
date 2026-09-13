@@ -27,3 +27,4 @@ cd backend && pip install -e ".[dev]" && alembic upgrade head
 uvicorn gramfeed.api.app:app --reload
 rq worker fetch                      # in a second terminal
 cd admin && npm install && npm run dev
+```
