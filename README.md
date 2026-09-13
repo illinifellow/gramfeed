@@ -11,3 +11,4 @@ Follow a public account in the admin, get a feed URL, put it in Feedly, NetNewsW
 1. You follow `@natgeo` in the admin. A job is queued.
 2. A worker fetches the profile's recent posts with **instaloader**, copies every image and video to your **S3** bucket (Instagram's CDN links expire in hours; a reader may fetch days later), and stores the posts in **Postgres**.
 3. `GET /natgeo.rss` (or `.atom`) renders the feed from the database. Readers poll it; Instagram never sees them.
+4. A clock process re-queues every account once an hour, spread evenly across the hour, so the server never asks Instagram for forty profiles at once.
