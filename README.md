@@ -18,3 +18,5 @@ A private, renamed or deleted account is paused with the reason shown; **Retry**
 ## Deploy
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/illinifellow/gramfeed)
+
+The button provisions Postgres, Redis and an S3 bucket and starts four processes: `web`, `worker`, `clock`, and a `release` step that runs migrations. Or locally:
