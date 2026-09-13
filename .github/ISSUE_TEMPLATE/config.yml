@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/illinifellow/gramfeed/discussions
+    about: Ask here rather than in issues.
