@@ -14,3 +14,7 @@ Follow a public account in the admin, get a feed URL, put it in Feedly, NetNewsW
 4. A clock process re-queues every account once an hour, spread evenly across the hour, so the server never asks Instagram for forty profiles at once.
 
 A private, renamed or deleted account is paused with the reason shown; **Retry** resumes it.
+
+## Deploy
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/illinifellow/gramfeed)
