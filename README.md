@@ -35,3 +35,4 @@ cd admin && npm install && npm run dev
 - Public accounts only. Stories and reels-only tabs are not fetched.
 - Without a logged-in session Instagram allows roughly one profile a minute per IP; set `GRAMFEED_INSTAGRAM_SESSION_USER` to raise that.
 - Respect the people you follow: this is for reading, not re-publishing.
+
