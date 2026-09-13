@@ -28,3 +28,9 @@ uvicorn gramfeed.api.app:app --reload
 rq worker fetch                      # in a second terminal
 cd admin && npm install && npm run dev
 ```
+
+
+## Limits
+
+- Public accounts only. Stories and reels-only tabs are not fetched.
+- Without a logged-in session Instagram allows roughly one profile a minute per IP; set `GRAMFEED_INSTAGRAM_SESSION_USER` to raise that.
