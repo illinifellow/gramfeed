@@ -40,3 +40,4 @@ cd admin && npm install && npm run dev
 ## Credits
 
 - [instaloader](https://github.com/instaloader/instaloader) by Alexander Graf, André Koch-Kramer and contributors — the reason this works at all.
+- [feedgen](https://github.com/lkiesow/python-feedgen) by Lars Kiesow.
