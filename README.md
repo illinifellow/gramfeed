@@ -44,3 +44,5 @@ cd admin && npm install && npm run dev
 - RSS-Bridge's Instagram bridge, the idea this project grew out of.
 
 ## License
+
+MIT
