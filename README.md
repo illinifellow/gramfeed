@@ -41,3 +41,6 @@ cd admin && npm install && npm run dev
 
 - [instaloader](https://github.com/instaloader/instaloader) by Alexander Graf, André Koch-Kramer and contributors — the reason this works at all.
 - [feedgen](https://github.com/lkiesow/python-feedgen) by Lars Kiesow.
+- RSS-Bridge's Instagram bridge, the idea this project grew out of.
+
+## License
