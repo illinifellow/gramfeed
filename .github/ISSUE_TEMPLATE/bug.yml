@@ -1,0 +1,44 @@
+name: Bug report
+description: Something is broken or wrong
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time. The more exact, the faster it gets fixed.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.8.1
+    validations:
+      required: true
+  - type: input
+    id: account
+    attributes:
+      label: Instagram account
+      description: The public account whose feed is wrong.
+  - type: dropdown
+    id: reader
+    attributes:
+      label: Feed reader
+      options: [Feedly, NetNewsWire, Miniflux, Inoreader, FreshRSS, other]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      render: shell
