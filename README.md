@@ -25,3 +25,5 @@ The button provisions Postgres, Redis and an S3 bucket and starts four processes
 docker compose up -d                 # Postgres, Redis, MinIO
 cd backend && pip install -e ".[dev]" && alembic upgrade head
 uvicorn gramfeed.api.app:app --reload
+rq worker fetch                      # in a second terminal
+cd admin && npm install && npm run dev
