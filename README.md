@@ -1,3 +1,12 @@
 # gramfeed
 
 **Instagram accounts as RSS feeds, on a server you own.**
+
+Follow a public account in the admin, get a feed URL, put it in Feedly, NetNewsWire, Miniflux or anything else. Photos, carousels and videos show inline; captions, locations and dates come along. No app, no algorithm, no ads between the posts.
+
+![your follows as feeds](docs/magazine.png)
+
+## How it works
+
+1. You follow `@natgeo` in the admin. A job is queued.
+2. A worker fetches the profile's recent posts with **instaloader**, copies every image and video to your **S3** bucket (Instagram's CDN links expire in hours; a reader may fetch days later), and stores the posts in **Postgres**.
